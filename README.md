@@ -1,70 +1,84 @@
-# Getting Started with Create React App
+# CodingChallenge Component
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+The `CodingChallenge` component generates a risk & reward graph for options strategies. It accepts an array of options contracts and calculates the profit/loss for different underlying prices at expiry.
 
-## Available Scripts
+## Props
 
-In the project directory, you can run:
+### `optionsData` (Array)
+An array of objects representing the options contracts. Each object should contain the following properties:
+- `strike_price` (Number): The strike price of the option.
+- `type` (String): The type of the option, either "Call" or "Put".
+- `bid` (Number): The bid price of the option.
+- `ask` (Number): The ask price of the option.
+- `long_short` (String): Indicates if the option is long or short.
+- `expiration_date` (String): The expiration date of the option in ISO format.
 
-### `npm start`
+## Methods
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### `calculateRiskReward()`
+Calculates the risk and reward for the given options contracts and updates the graph.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### `calculateProfit(price)`
+Computes the total profit for a given price of the underlying asset.
 
-### `npm test`
+### `calculateOptionProfit(option, price)`
+Computes the profit for a single option contract.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `findBreakEvPoints(profits, underlyingPrices)`
+Identifies the break-even points where profit transitions from negative to positive or vice versa.
 
-### `npm run build`
+### `renderGraph(underlyingPrices, profits)`
+Renders the profit/loss graph using Chart.js.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Usage Example
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```jsx
+import React from 'react';
+import CodingChallenge from './CodingChallenge';
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+const sampleData = [
+  {
+    "strike_price": 100,
+    "type": "Call",
+    "bid": 10.05,
+    "ask": 12.04,
+    "long_short": "long",
+    "expiration_date": "2025-12-17T00:00:00Z"
+  },
+  {
+    "strike_price": 102.50,
+    "type": "Call",
+    "bid": 12.10,
+    "ask": 14,
+    "long_short": "long",
+    "expiration_date": "2025-12-17T00:00:00Z"
+  },
+  {
+    "strike_price": 103,
+    "type": "Put",
+    "bid": 14,
+    "ask": 15.50,
+    "long_short": "short",
+    "expiration_date": "2025-12-17T00:00:00Z"
+  },
+  {
+    "strike_price": 105,
+    "type": "Put",
+    "bid": 16,
+    "ask": 18,
+    "long_short": "long",
+    "expiration_date": "2025-12-17T00:00:00Z"
+  }
+];
 
-### `npm run eject`
+const App = () => (
+  <div>
+    <CodingChallenge optionsData={sampleData} />
+  </div>
+);
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+export default App;
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### For any questions or suggestions, please contact me kolawolebolarinwa771@gmail.com
