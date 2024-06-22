@@ -1,0 +1,99 @@
+.App {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+.coding-challenge {
+  font-family: 'Arial', sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.control-panel {
+  margin-bottom: 20px;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #555;
+}
+
+.input {
+  width: 100px;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.chart-container {
+  margin-bottom: 20px;
+}
+
+.results {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.results p {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.legends-container {
+  margin: auto;
+  width: 363px;
+}
+
+.legends-container .legend {
+  width: 33px;
+}
+
+.legends-container .legend-name {
+  font-size: 13px;
+  font-weight: bold;
+  padding-left: 2px;
+  text-align: left;
+  color: #666666;
+  width: 74px;
+}
+
+.legends-container .legend.legend-1 {
+  background: rgba(75, 192, 192, 0.2);
+  border: 3px solid rgba(75, 192, 192, 1);
+}
+
+.legends-container .legend.legend-2 {
+  background: rgba(237, 104, 104, 0.2);
+  border: 3px solid rgb(237, 104, 104);
+}
+
+.legends-container .legend.legend-3 {
+  background: rgba(25, 25, 115, 0.2);
+  border: 3px solid rgb(25, 25, 115);
+}
